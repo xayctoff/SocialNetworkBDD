@@ -32,5 +32,6 @@ public class UserTest {
 
     @Then("^I should get user's password$")
     public void iShouldGetUserSPassword() {
+        Assert.assertNotNull(this.password);
     }
 }
