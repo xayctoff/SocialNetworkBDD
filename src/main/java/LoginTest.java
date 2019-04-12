@@ -7,6 +7,7 @@ public class LoginTest {
 
     private Login signIn;
     private String login;
+    private String password;
 
     @Given("^I have an authorization window$")
     public void iHaveAnAuthorizationWindow() {
@@ -21,6 +22,7 @@ public class LoginTest {
 
     @And("^I entered the user password$")
     public void iEnteredTheUserPassword() {
+        this.password = "111";
     }
 
     @And("^I pressed sign in button$")
