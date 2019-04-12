@@ -17,6 +17,7 @@ public class DatabaseTest {
     private int updateResult;
     private String insertQuery;
     private String updateQuery;
+    private int ID;
 
     @Given("^I haven't connection to the database$")
     public void iHavenTConnectionToTheDatabase() {
@@ -135,7 +136,15 @@ public class DatabaseTest {
 
     @When("^I try to get user's id by query$")
     public void iTryToGetUserSIdByQuery() {
-        
+        Database database = Database.getInstance();
+
+        try {
+            this.ID = database.getUserID(this.login);
+        }
+
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 
     @Then("^I should get user's id <user_id>$")
