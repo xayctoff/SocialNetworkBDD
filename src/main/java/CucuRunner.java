@@ -3,7 +3,7 @@ import cucumber.api.junit.*;
 import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {}
+        features = {"src/templates/features"}
 )
 
 public class CucuRunner {
