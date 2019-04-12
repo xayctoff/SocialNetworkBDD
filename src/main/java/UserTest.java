@@ -1,3 +1,4 @@
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -33,5 +34,24 @@ public class UserTest {
     @Then("^I should get user's password$")
     public void iShouldGetUserSPassword() {
         Assert.assertNotNull(this.password);
+    }
+
+    @Given("^I have a server$")
+    public void iHaveAServer() {
+
+    }
+
+    @Given("^I have a receiver$")
+    public void iHaveAReceiver() {
+
+    }
+
+    @When("^Server try to send friendship request to receiver$")
+    public void serverTryToSendFriendshipRequestToReceiver() {
+
+    }
+
+    @And("^I try to check successful bid request$")
+    public void iTryToCheckSuccessfulBidRequest() {
     }
 }
