@@ -69,7 +69,8 @@ public class Database {
         return count > 0;
     }
 
-    public int insert(String query) {
-
+    public int insert(String query) throws SQLException {
+        statement = instance.connection.createStatement();
+        return statement.executeUpdate(query);
     }
 }
