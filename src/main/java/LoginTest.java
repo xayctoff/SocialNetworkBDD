@@ -5,16 +5,18 @@ import cucumber.api.java.en.When;
 
 public class LoginTest {
 
-    private Login login;
+    private Login signIn;
+    private String login;
 
     @Given("^I have an authorization window$")
     public void iHaveAnAuthorizationWindow() {
-        this.login = new Login();
+        this.signIn = new Login();
     }
 
 
     @When("^I entered the user login$")
     public void iEnteredTheUserLogin() {
+        this.login = "xayctoff";
     }
 
     @And("^I entered the user password$")
