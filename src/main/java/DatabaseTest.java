@@ -4,8 +4,11 @@ import cucumber.api.java.en.When;
 
 public class DatabaseTest {
 
+    private Database database;
+
     @Given("^I haven't connection to the database$")
     public void iHavenTConnectionToTheDatabase() {
+        this.database = null;
     }
 
     @When("^I try to connect to the database$")
