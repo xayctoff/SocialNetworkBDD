@@ -7,6 +7,7 @@ public class DatabaseTest {
 
     private Database database;
     private Database anotherDatabase;
+    private String login;
 
     @Given("^I haven't connection to the database$")
     public void iHavenTConnectionToTheDatabase() {
@@ -35,7 +36,7 @@ public class DatabaseTest {
 
     @Given("^I have a login$")
     public void iHaveALogin() {
-        
+        this.login = "xayctoff";
     }
 
     @Given("^I have a password$")
