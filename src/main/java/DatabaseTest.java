@@ -13,6 +13,7 @@ public class DatabaseTest {
 
     @When("^I try to connect to the database$")
     public void iTryToConnectToTheDatabase() {
+        this.database = Database.getInstance();
     }
 
     @Then("^I should connect to the database$")
