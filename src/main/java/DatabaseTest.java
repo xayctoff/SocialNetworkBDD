@@ -9,6 +9,7 @@ public class DatabaseTest {
     private Database anotherDatabase;
     private String login;
     private String password;
+    private boolean checkOnValidAuthorizationResult;
 
     @Given("^I haven't connection to the database$")
     public void iHavenTConnectionToTheDatabase() {
@@ -47,7 +48,7 @@ public class DatabaseTest {
 
     @When("^I try to check valid authorization$")
     public void iTryToCheckValidAuthorization() {
-        
+        this.checkOnValidAuthorizationResult = database.checkOnValidAuthorization(this.login, this.password);
     }
 
     @Then("^I should to pass validation$")
