@@ -8,14 +8,15 @@ import java.sql.SQLException;
 
 public class LoginTest {
 
-    private Login signIn;
+    private Login authorization;
     private String login;
     private String password;
     private boolean signInResult;
+    private boolean signUpResult
 
     @Given("^I have an authorization window$")
     public void iHaveAnAuthorizationWindow() {
-        this.signIn = new Login();
+        this.authorization = new Login();
     }
 
 
@@ -32,7 +33,7 @@ public class LoginTest {
     @And("^I pressed sign in button$")
     public void iPressedSignInButton() {
         try {
-            this.signInResult = signIn.signIn(this.login, this.password);
+            this.signInResult = authorization.signIn(this.login, this.password);
         }
 
         catch (SQLException exception) {
@@ -47,5 +48,12 @@ public class LoginTest {
 
     @And("^I pressed sign up button$")
     public void iPressedSignUpButton() {
+        try {
+            this.signUpResult = authorization.signUp(this.login, this.password);
+        }
+
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 }
