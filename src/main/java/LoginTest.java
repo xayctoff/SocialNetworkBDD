@@ -12,7 +12,7 @@ public class LoginTest {
     private String login;
     private String password;
     private boolean signInResult;
-    private boolean signUpResult
+    private boolean signUpResult;
 
     @Given("^I have an authorization window$")
     public void iHaveAnAuthorizationWindow() {
