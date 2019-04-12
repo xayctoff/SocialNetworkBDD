@@ -16,6 +16,7 @@ public class DatabaseTest {
     private int insertResult;
     private String insertQuery;
     private String updateQuery;
+    private String updateResult;
 
     @Given("^I haven't connection to the database$")
     public void iHavenTConnectionToTheDatabase() {
@@ -110,6 +111,16 @@ public class DatabaseTest {
         this.updateQuery = "UPDATE friends SET status = 2 WHERE first = (SELECT user_id FROM users WHERE login = " +
                 "'xayctoff') AND second = (SELECT user_id FROM users WHERE login = 'andre') OR first = (SELECT user_id" +
                 " FROM users WHERE login = 'andre') AND second = (SELECT user_id FROM users WHERE login = 'xayctoff')";
+
+        Database database = Database.getInstance();
+
+        try {
+            this.updateResult = database.update(updateQuery);
+        }
+
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 
     @Then("^I should get (\\d+) because I update one record$")
