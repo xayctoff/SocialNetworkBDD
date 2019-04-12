@@ -14,7 +14,8 @@ public class DatabaseTest {
     private boolean checkOnValidAuthorizationResult;
     private boolean checkOnExistUserResult;
     private int insertResult;
-    private String query;
+    private String insertQuery;
+    private String updateQuery;
 
     @Given("^I haven't connection to the database$")
     public void iHavenTConnectionToTheDatabase() {
@@ -85,7 +86,7 @@ public class DatabaseTest {
 
     @Given("^I have a query$")
     public void iHaveAQuery() {
-        this.query = "INSERT INTO users values (DEFAULT, 'pravd', 'kola')";
+        this.insertQuery = "INSERT INTO users values (DEFAULT, 'pravd', 'kola')";
     }
 
     @When("^I try to insert record in the database$")
@@ -93,7 +94,7 @@ public class DatabaseTest {
         Database database = Database.getInstance();
 
         try {
-            this.insertResult = database.insert(query);
+            this.insertResult = database.insert(insertQuery);
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
@@ -106,7 +107,9 @@ public class DatabaseTest {
 
     @When("^I try to update record in the database$")
     public void iTryToUpdateRecordInTheDatabase() {
-
+        this.updateQuery = "UPDATE friends SET status = 2 WHERE first = (SELECT user_id FROM users WHERE login = " +
+                "'xayctoff') AND second = (SELECT user_id FROM users WHERE login = 'andre') OR first = (SELECT user_id" +
+                " FROM users WHERE login = 'andre') AND second = (SELECT user_id FROM users WHERE login = 'xayctoff')";
     }
 
     @Then("^I should get (\\d+) because I update one record$")
