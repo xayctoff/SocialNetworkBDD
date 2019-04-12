@@ -74,6 +74,8 @@ public class Database {
         return statement.executeUpdate(query);
     }
 
-    public int update(String query) {
+    public int update(String query) throws SQLException {
+        statement = instance.connection.createStatement();
+        return statement.executeUpdate(query);
     }
 }
