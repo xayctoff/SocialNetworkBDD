@@ -95,7 +95,14 @@ public class DatabaseTest {
     @When("^I try to insert record in the database$")
     public void iTryToInsertRecordInTheDatabase() {
         Database database = Database.getInstance();
-        this.insertResult = database.insert(query);
+
+        try {
+            this.insertResult = database.insert(query);
+        }
+
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 
     @Then("^I should get (\\d+) because I insert one record$")
