@@ -18,6 +18,5 @@ Feature: Database
 
   Scenario: Check for user existence
     Given I have a login
-    Given I have a password
     When I try to check user existence
     Then I should get true result
