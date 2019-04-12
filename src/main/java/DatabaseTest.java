@@ -130,7 +130,7 @@ public class DatabaseTest {
 
     @Given("^I have a login <login>$")
     public void iHaveALoginLogin() {
-        
+        this.login = "xayctoff";
     }
 
     @When("^I try to get user's id by query$")
