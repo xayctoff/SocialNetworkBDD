@@ -6,6 +6,7 @@ import org.junit.Assert;
 public class DatabaseTest {
 
     private Database database;
+    private Database anotherDatabase;
 
     @Given("^I haven't connection to the database$")
     public void iHavenTConnectionToTheDatabase() {
@@ -24,6 +25,7 @@ public class DatabaseTest {
 
     @Given("^I have connection to the database$")
     public void iHaveConnectionToTheDatabase() {
+        this.anotherDatabase = Database.getInstance();
     }
 
     @Then("^I should get current connection$")
