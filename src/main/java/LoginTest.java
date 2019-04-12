@@ -8,6 +8,7 @@ public class LoginTest {
     private Login signIn;
     private String login;
     private String password;
+    private boolean signInResult;
 
     @Given("^I have an authorization window$")
     public void iHaveAnAuthorizationWindow() {
@@ -27,7 +28,7 @@ public class LoginTest {
 
     @And("^I pressed sign in button$")
     public void iPressedSignInButton() {
-
+        this.signInResult = signIn.signIn(this.signIn, this.password);
     }
 
     @Then("^I have to enter my page$")
