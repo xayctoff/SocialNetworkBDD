@@ -5,6 +5,7 @@ import cucumber.api.java.en.When;
 public class UserTest {
 
     private User user;
+    private String login;
 
     @Given("^I have a user$")
     public void iHaveAUser() {
@@ -13,6 +14,8 @@ public class UserTest {
 
     @When("^I try to get user's login$")
     public void iTryToGetUserSLogin() {
+        this.user.setLogin("xayctoff");
+        this.login = user.getLogin();
     }
 
     @Then("^I should get user's login$")
