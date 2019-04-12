@@ -14,9 +14,9 @@ public class DatabaseTest {
     private boolean checkOnValidAuthorizationResult;
     private boolean checkOnExistUserResult;
     private int insertResult;
+    private int updateResult;
     private String insertQuery;
     private String updateQuery;
-    private String updateResult;
 
     @Given("^I haven't connection to the database$")
     public void iHavenTConnectionToTheDatabase() {
@@ -125,5 +125,6 @@ public class DatabaseTest {
 
     @Then("^I should get (\\d+) because I update one record$")
     public void iShouldGetBecauseIUpdateOneRecord(int rowsNumber) {
+        Assert.assertEquals(rowsNumber, this.updateResult);
     }
 }
