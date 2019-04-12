@@ -13,6 +13,7 @@ public class DatabaseTest {
     private String password;
     private boolean checkOnValidAuthorizationResult;
     private boolean checkOnExistUserResult;
+    private int insertResult;
     private String query;
 
     @Given("^I haven't connection to the database$")
@@ -93,7 +94,8 @@ public class DatabaseTest {
 
     @When("^I try to insert record in the database$")
     public void iTryToInsertRecordInTheDatabase() {
-
+        Database database = Database.getInstance();
+        this.insertResult = database.insert(query);
     }
 
     @Then("^I should get (\\d+) because I insert one record$")
