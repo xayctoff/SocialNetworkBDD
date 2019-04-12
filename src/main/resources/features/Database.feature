@@ -31,12 +31,7 @@ Feature: Database
     When I try to update record in the database
     Then I should get 1 because I update one record
 
-  Scenario Outline: Get user's id
-    Given I have a login <login>
+  Scenario: Get user's id
+    Given I have a login
     When I try to get user's id by query
-    Then I should get user's id <user_id>
-
-  Examples:
-
-    | user_id | login |
-    | 1 | xayctoff|
+    Then I should get user's id
