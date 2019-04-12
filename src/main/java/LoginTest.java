@@ -41,19 +41,24 @@ public class LoginTest {
         }
     }
 
-    @Then("^I have to enter my page$")
-    public void iHaveToEnterMyPage() {
+    @Then("^I have to enter in my page$")
+    public void iHaveToEnterInMyPage() {
         Assert.assertTrue(signInResult);
     }
 
     @And("^I pressed sign up button$")
     public void iPressedSignUpButton() {
         try {
-            this.signUpResult = authorization.signUp(this.login, this.password);
+            this.signUpResult = authorization.signUp("kkors", "12345");
         }
 
         catch (SQLException exception) {
             exception.printStackTrace();
         }
+    }
+
+    @Then("^I have to enter in my page after sign up$")
+    public void iHaveToEnterInMyPageAfterSignUp() {
+        Assert.assertTrue(signUpResult);
     }
 }
