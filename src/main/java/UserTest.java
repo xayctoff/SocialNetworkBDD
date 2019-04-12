@@ -51,7 +51,7 @@ public class UserTest {
 
     @When("^Server try to send friendship request to receiver$")
     public void serverTryToSendFriendshipRequestToReceiver() {
-
+        this.user.addFriend(this.server, this.receiver);
     }
 
     @And("^I try to check successful bid request$")
