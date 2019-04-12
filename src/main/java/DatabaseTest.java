@@ -3,6 +3,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 
+import java.sql.SQLException;
+
 public class DatabaseTest {
 
     private Database database;
@@ -48,10 +50,17 @@ public class DatabaseTest {
 
     @When("^I try to check valid authorization$")
     public void iTryToCheckValidAuthorization() {
-        this.checkOnValidAuthorizationResult = database.checkOnValidAuthorization(this.login, this.password);
+        try {
+            this.checkOnValidAuthorizationResult = database.checkOnValidAuthorization(this.login, this.password);
+        }
+
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 
     @Then("^I should to pass validation$")
     public void iShouldToPassValidation() {
+        Assert.assertTrue(checkOnValidAuthorizationResult);
     }
 }
