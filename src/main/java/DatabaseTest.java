@@ -13,6 +13,7 @@ public class DatabaseTest {
     private String password;
     private boolean checkOnValidAuthorizationResult;
     private boolean checkOnExistUserResult;
+    private String query;
 
     @Given("^I haven't connection to the database$")
     public void iHavenTConnectionToTheDatabase() {
@@ -87,7 +88,7 @@ public class DatabaseTest {
 
     @Given("^I have a query$")
     public void iHaveAQuery() {
-
+        this.query = "INSERT INTO users values (DEFAULT, 'pravd', 'kola')";
     }
 
     @When("^I try to insert record in the database$")
