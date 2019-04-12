@@ -28,7 +28,7 @@ public class LoginTest {
 
     @And("^I pressed sign in button$")
     public void iPressedSignInButton() {
-        this.signInResult = signIn.signIn(this.signIn, this.password);
+        this.signInResult = signIn.signIn(this.login, this.password);
     }
 
     @Then("^I have to enter my page$")
