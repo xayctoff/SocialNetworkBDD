@@ -63,4 +63,13 @@ public class DatabaseTest {
     public void iShouldToPassValidation() {
         Assert.assertTrue(checkOnValidAuthorizationResult);
     }
+
+    @When("^I try to check user existence$")
+    public void iTryToCheckUserExistence() {
+        
+    }
+
+    @Then("^I should get true result$")
+    public void iShouldGetTrueResult() {
+    }
 }
