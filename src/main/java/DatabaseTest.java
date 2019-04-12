@@ -21,4 +21,12 @@ public class DatabaseTest {
     public void iShouldConnectToTheDatabase() {
         Assert.assertNotNull(this.database);
     }
+
+    @Given("^I have connection to the database$")
+    public void iHaveConnectionToTheDatabase() {
+    }
+
+    @Then("^I should get current connection$")
+    public void iShouldGetCurrentConnection() {
+    }
 }
