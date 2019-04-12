@@ -7,6 +7,7 @@ public class UserTest {
 
     private User user;
     private String login;
+    private String password;
 
     @Given("^I have a user$")
     public void iHaveAUser() {
