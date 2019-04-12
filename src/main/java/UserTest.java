@@ -11,6 +11,7 @@ public class UserTest {
     private String password;
 
     private String server;
+    private String receiver;
 
     @Given("^I have a user$")
     public void iHaveAUser() {
@@ -45,7 +46,7 @@ public class UserTest {
 
     @Given("^I have a receiver$")
     public void iHaveAReceiver() {
-
+        this.receiver = "kobzev";
     }
 
     @When("^Server try to send friendship request to receiver$")
