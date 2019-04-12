@@ -36,7 +36,7 @@ public class DatabaseTest {
 
     @Then("^I should get current connection$")
     public void iShouldGetCurrentConnection() {
-        Assert.assertEquals(database, anotherDatabase);
+        Assert.assertEquals(this.database, this.anotherDatabase);
     }
 
     @Given("^I have a login$")
@@ -62,15 +62,22 @@ public class DatabaseTest {
 
     @Then("^I should to pass validation$")
     public void iShouldToPassValidation() {
-        Assert.assertTrue(checkOnValidAuthorizationResult);
+        Assert.assertTrue(this.checkOnValidAuthorizationResult);
     }
 
     @When("^I try to check user existence$")
     public void iTryToCheckUserExistence() {
-        this.checkOnExistUserResult = database.checkOnExistUser(this.login);
+        try {
+            this.checkOnExistUserResult = database.checkOnExistUser(this.login);
+        }
+
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 
     @Then("^I should get true result$")
     public void iShouldGetTrueResult() {
+        Assert.assertTrue(this.checkOnExistUserResult);
     }
 }
