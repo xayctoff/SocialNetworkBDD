@@ -32,4 +32,23 @@ public class DatabaseTest {
     public void iShouldGetCurrentConnection() {
         Assert.assertEquals(database, anotherDatabase);
     }
+
+    @Given("^I have a login$")
+    public void iHaveALogin() {
+        
+    }
+
+    @Given("^I have a password$")
+    public void iHaveAPassword() {
+        
+    }
+
+    @When("^I try to check valid authorization$")
+    public void iTryToCheckValidAuthorization() {
+        
+    }
+
+    @Then("^I should to pass validation$")
+    public void iShouldToPassValidation() {
+    }
 }
