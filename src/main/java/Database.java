@@ -68,4 +68,8 @@ public class Database {
         int count = result.getInt("count");
         return count > 0;
     }
+
+    public int insert(String query) {
+
+    }
 }
