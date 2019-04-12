@@ -23,4 +23,13 @@ public class UserTest {
     public void iShouldGetUserSLogin() {
         Assert.assertNotNull(this.login);
     }
+
+    @When("^I try to get user's password$")
+    public void iTryToGetUserSPassword() {
+        
+    }
+
+    @Then("^I should get user's password$")
+    public void iShouldGetUserSPassword() {
+    }
 }
