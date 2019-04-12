@@ -59,4 +59,13 @@ public class Database {
             return result.getInt("count") != 0;
         }
     }
+
+    public boolean checkOnExistUser(String login) throws SQLException {
+        statement = instance.connection.createStatement();
+        String query = "SELECT COUNT(login) FROM users WHERE login = '" + login + "'";
+        ResultSet result = statement.executeQuery(query);
+        result.next();
+        int count = result.getInt("count");
+        return count > 0;
+    }
 }
