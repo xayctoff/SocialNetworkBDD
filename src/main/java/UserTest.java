@@ -10,6 +10,8 @@ public class UserTest {
     private String login;
     private String password;
 
+    private String server;
+
     @Given("^I have a user$")
     public void iHaveAUser() {
         this.user = new User();
@@ -38,7 +40,7 @@ public class UserTest {
 
     @Given("^I have a server$")
     public void iHaveAServer() {
-
+        this.server = "egor228";
     }
 
     @Given("^I have a receiver$")
