@@ -57,9 +57,7 @@ public class DatabaseTest {
 
         try {
             this.checkOnValidAuthorizationResult = this.database.checkOnValidAuthorization(this.login, this.password);
-        }
-
-        catch (SQLException exception) {
+        } catch (SQLException exception) {
             exception.printStackTrace();
         }
     }
@@ -75,9 +73,7 @@ public class DatabaseTest {
 
         try {
             this.checkOnExistUserResult = this.database.checkOnExistUser(this.login);
-        }
-
-        catch (SQLException exception) {
+        } catch (SQLException exception) {
             exception.printStackTrace();
         }
     }
@@ -98,9 +94,7 @@ public class DatabaseTest {
 
         try {
             this.insertResult = database.insert(query);
-        }
-
-        catch (SQLException exception) {
+        } catch (SQLException exception) {
             exception.printStackTrace();
         }
     }
@@ -108,5 +102,14 @@ public class DatabaseTest {
     @Then("^I should get (\\d+) because I insert one record$")
     public void iShouldGetBecauseIInsertOneRecord(int rowsNumber) {
         Assert.assertEquals(rowsNumber, this.insertResult);
+    }
+
+    @When("^I try to update record in the database$")
+    public void iTryToUpdateRecordInTheDatabase() {
+
+    }
+
+    @Then("^I should get (\\d+) because I update one record$")
+    public void iShouldGetBecauseIUpdateOneRecord(int rowsNumber) {
     }
 }
