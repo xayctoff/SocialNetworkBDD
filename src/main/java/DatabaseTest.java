@@ -127,4 +127,18 @@ public class DatabaseTest {
     public void iShouldGetBecauseIUpdateOneRecord(int rowsNumber) {
         Assert.assertEquals(rowsNumber, this.updateResult);
     }
+
+    @Given("^I have a login <login>$")
+    public void iHaveALoginLogin() {
+        
+    }
+
+    @When("^I try to get user's id by query$")
+    public void iTryToGetUserSIdByQuery() {
+        
+    }
+
+    @Then("^I should get user's id <user_id>$")
+    public void iShouldGetUserSIdUser_id() {
+    }
 }
