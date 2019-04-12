@@ -12,6 +12,7 @@ public class DatabaseTest {
     private String login;
     private String password;
     private boolean checkOnValidAuthorizationResult;
+    private boolean checkOnExistUserResult;
 
     @Given("^I haven't connection to the database$")
     public void iHavenTConnectionToTheDatabase() {
@@ -66,7 +67,7 @@ public class DatabaseTest {
 
     @When("^I try to check user existence$")
     public void iTryToCheckUserExistence() {
-        
+        this.checkOnExistUserResult = database.checkOnExistUser(this.login);
     }
 
     @Then("^I should get true result$")
