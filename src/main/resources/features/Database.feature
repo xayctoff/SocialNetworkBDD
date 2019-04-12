@@ -15,3 +15,9 @@ Feature: Database
     Given I have a password
     When I try to check valid authorization
     Then I should to pass validation
+
+  Scenario: Check for user existence
+    Given I have a login
+    Given I have a password
+    When I try to check user existence
+    Then I should get true result
