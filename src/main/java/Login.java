@@ -4,14 +4,8 @@ public class Login {
 
     public Login() {}
 
-    public boolean signIn(String login, String password) {
+    public boolean signIn(String login, String password) throws SQLException {
         Database database = Database.getInstance();
-        try {
-            return database.checkOnValidAuthorization(login, password);
-        }
-
-        catch (SQLException exception) {
-            exception.printStackTrace();
-        }
+        return database.checkOnValidAuthorization(login, password);
     }
 }
