@@ -73,4 +73,7 @@ public class Database {
         statement = instance.connection.createStatement();
         return statement.executeUpdate(query);
     }
+
+    public int update(String query) {
+    }
 }
