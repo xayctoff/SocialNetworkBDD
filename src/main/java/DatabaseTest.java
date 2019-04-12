@@ -30,5 +30,6 @@ public class DatabaseTest {
 
     @Then("^I should get current connection$")
     public void iShouldGetCurrentConnection() {
+        Assert.assertEquals(database, anotherDatabase);
     }
 }
