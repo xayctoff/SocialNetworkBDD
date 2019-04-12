@@ -2,6 +2,9 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
+
+import java.sql.SQLException;
 
 public class LoginTest {
 
@@ -28,10 +31,17 @@ public class LoginTest {
 
     @And("^I pressed sign in button$")
     public void iPressedSignInButton() {
-        this.signInResult = signIn.signIn(this.login, this.password);
+        try {
+            this.signInResult = signIn.signIn(this.login, this.password);
+        }
+
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 
     @Then("^I have to enter my page$")
     public void iHaveToEnterMyPage() {
+        Assert.assertTrue(signInResult);
     }
 }
