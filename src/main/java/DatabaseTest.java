@@ -129,7 +129,7 @@ public class DatabaseTest {
         Assert.assertEquals(rowsNumber, this.updateResult);
     }
 
-    @Given("^I have a login <login>$")
+    @Given("^I have a login$")
     public void iHaveALoginLogin() {
         this.login = "xayctoff";
     }
@@ -147,7 +147,8 @@ public class DatabaseTest {
         }
     }
 
-    @Then("^I should get user's id <user_id>$")
+    @Then("^I should get user's id$")
     public void iShouldGetUserSIdUser_id() {
+        Assert.assertEquals(1, this.ID);
     }
 }
