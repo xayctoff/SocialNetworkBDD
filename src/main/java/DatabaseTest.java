@@ -84,4 +84,18 @@ public class DatabaseTest {
     public void iShouldGetTrueResult() {
         Assert.assertTrue(this.checkOnExistUserResult);
     }
+
+    @Given("^I have a query$")
+    public void iHaveAQuery() {
+
+    }
+
+    @When("^I try to insert record in the database$")
+    public void iTryToInsertRecordInTheDatabase() {
+
+    }
+
+    @Then("^I should get (\\d+) because I insert one record$")
+    public void iShouldGetBecauseIInsertOneRecord(int rowsNumber) {
+    }
 }
