@@ -25,3 +25,8 @@ Feature: Database
     Given I have a query
     When I try to insert record in the database
     Then I should get 1 because I insert one record
+
+  Scenario: Update
+    Given I have a query
+    When I try to update record in the database
+    Then I should get 1 because I update one record
