@@ -51,8 +51,10 @@ public class DatabaseTest {
 
     @When("^I try to check valid authorization$")
     public void iTryToCheckValidAuthorization() {
+        this.database = Database.getInstance();
+
         try {
-            this.checkOnValidAuthorizationResult = database.checkOnValidAuthorization(this.login, this.password);
+            this.checkOnValidAuthorizationResult = this.database.checkOnValidAuthorization(this.login, this.password);
         }
 
         catch (SQLException exception) {
@@ -67,8 +69,10 @@ public class DatabaseTest {
 
     @When("^I try to check user existence$")
     public void iTryToCheckUserExistence() {
+        this.database = Database.getInstance();
+
         try {
-            this.checkOnExistUserResult = database.checkOnExistUser(this.login);
+            this.checkOnExistUserResult = this.database.checkOnExistUser(this.login);
         }
 
         catch (SQLException exception) {
