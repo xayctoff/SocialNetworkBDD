@@ -44,4 +44,8 @@ public class LoginTest {
     public void iHaveToEnterMyPage() {
         Assert.assertTrue(signInResult);
     }
+
+    @And("^I pressed sign up button$")
+    public void iPressedSignUpButton() {
+    }
 }
