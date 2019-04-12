@@ -8,4 +8,8 @@ public class Login {
         Database database = Database.getInstance();
         return database.checkOnValidAuthorization(login, password);
     }
+
+    public boolean signUp(String login, String password) {
+        
+    }
 }
