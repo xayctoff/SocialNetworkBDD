@@ -8,6 +8,7 @@ public class DatabaseTest {
     private Database database;
     private Database anotherDatabase;
     private String login;
+    private String password;
 
     @Given("^I haven't connection to the database$")
     public void iHavenTConnectionToTheDatabase() {
@@ -41,7 +42,7 @@ public class DatabaseTest {
 
     @Given("^I have a password$")
     public void iHaveAPassword() {
-        
+        this.password = "111";
     }
 
     @When("^I try to check valid authorization$")
