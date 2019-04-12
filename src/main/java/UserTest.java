@@ -1,6 +1,7 @@
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 
 public class UserTest {
 
@@ -20,5 +21,6 @@ public class UserTest {
 
     @Then("^I should get user's login$")
     public void iShouldGetUserSLogin() {
+        Assert.assertNotNull(this.login);
     }
 }
