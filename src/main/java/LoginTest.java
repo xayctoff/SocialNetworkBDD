@@ -4,8 +4,12 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class LoginTest {
+
+    private Login login;
+
     @Given("^I have an authorization window$")
     public void iHaveAnAuthorizationWindow() {
+        this.login = new Login();
     }
 
 
