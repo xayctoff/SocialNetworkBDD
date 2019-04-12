@@ -100,5 +100,6 @@ public class DatabaseTest {
 
     @Then("^I should get (\\d+) because I insert one record$")
     public void iShouldGetBecauseIInsertOneRecord(int rowsNumber) {
+        Assert.assertEquals(rowsNumber, this.insertResult);
     }
 }
