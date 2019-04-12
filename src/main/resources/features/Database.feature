@@ -20,3 +20,8 @@ Feature: Database
     Given I have a login
     When I try to check user existence
     Then I should get true result
+
+  Scenario: Insert
+    Given I have a query
+    When I try to insert record in the database
+    Then I should get 1 because I insert one record
