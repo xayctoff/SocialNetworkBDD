@@ -74,7 +74,7 @@ public class UserTest {
 
     @When("^Receiver try to confirm friendship request from server$")
     public void receiverTryToConfirmFriendshipRequestFromServer() {
-        
+        this.user.confirmFriendship(this.server, this.receiver);
     }
 
     @And("^I try to check users on friendship$")
