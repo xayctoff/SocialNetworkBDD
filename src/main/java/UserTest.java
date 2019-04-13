@@ -14,6 +14,7 @@ public class UserTest {
     private String server;
     private String receiver;
     private boolean addFriendResult;
+    private boolean confirmFriendshipResult;
 
     @Given("^I have a user$")
     public void iHaveAUser() {
@@ -79,5 +80,12 @@ public class UserTest {
 
     @And("^I try to check users on friendship$")
     public void iTryToCheckUsersOnFriendship() {
+        try {
+            this.addFriendResult = Database.getInstance().checkOnFriendship(this.server, this.receiver);
+        }
+
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 }
