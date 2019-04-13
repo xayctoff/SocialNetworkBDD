@@ -10,9 +10,14 @@ Feature: User
     When I try to get user's password
     Then I should get user's password
 
-  Scenario: Add friend
+  Scenario Outline: Add friend
     Given I have a server
     Given I have a receiver
     When Server try to send friendship request to receiver
     And I try to check successful bid request
-    Then I should get true result
+    Then I should get true <result>
+
+  Examples:
+    | result |
+    | addFriendResult |
+    | confirmFriendshipResult |
