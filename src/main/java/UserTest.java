@@ -54,7 +54,13 @@ public class UserTest {
 
     @When("^Server try to send friendship request to receiver$")
     public void serverTryToSendFriendshipRequestToReceiver() {
-        this.user.addFriend(this.server, this.receiver);
+        try {
+            this.user.addFriend(this.server, this.receiver);
+        }
+
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 
     @And("^I try to check users on request$")
@@ -68,9 +74,9 @@ public class UserTest {
         }
     }
 
-    @Then("^I should get true <result>$")
-    public void iShouldGetTrueResult(boolean result) {
-        Assert.assertTrue(result);
+    @Then("^I should get true result after request$")
+    public void iShouldGetTrueResultAfterRequest() {
+        Assert.assertTrue(this.addFriendResult);
     }
 
     @When("^Receiver try to confirm friendship request from server$")
@@ -81,11 +87,16 @@ public class UserTest {
     @And("^I try to check users on friendship$")
     public void iTryToCheckUsersOnFriendship() {
         try {
-            this.addFriendResult = Database.getInstance().checkOnFriendship(this.server, this.receiver);
+            this.confirmFriendshipResult = Database.getInstance().checkOnFriendship(this.server, this.receiver);
         }
 
         catch (SQLException exception) {
             exception.printStackTrace();
         }
+    }
+
+    @Then("^I should get true result after confirm$")
+    public void iShouldGetTrueResultAfterConfirm() {
+        Assert.assertTrue(this.confirmFriendshipResult);
     }
 }
