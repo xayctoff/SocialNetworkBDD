@@ -45,6 +45,7 @@ public class UserTest {
     @Given("^I have a server$")
     public void iHaveAServer() {
         this.server = "egor228";
+
     }
 
     @Given("^I have a receiver$")
@@ -54,11 +55,13 @@ public class UserTest {
 
     @When("^Server try to send friendship request to receiver$")
     public void serverTryToSendFriendshipRequestToReceiver() {
+        this.user = new User();
+
         try {
             this.user.addFriend(this.server, this.receiver);
         }
 
-        catch (SQLException exception) {
+        catch (Exception exception) {
             exception.printStackTrace();
         }
     }
@@ -69,7 +72,7 @@ public class UserTest {
             this.addFriendResult = Database.getInstance().checkOnRequest(this.server, this.receiver);
         }
 
-        catch (SQLException exception) {
+        catch (Exception exception) {
             exception.printStackTrace();
         }
     }
@@ -81,6 +84,7 @@ public class UserTest {
 
     @When("^Receiver try to confirm friendship request from server$")
     public void receiverTryToConfirmFriendshipRequestFromServer() {
+        this.user = new User();
         this.user.confirmFriendship(this.server, this.receiver);
     }
 
@@ -90,7 +94,7 @@ public class UserTest {
             this.confirmFriendshipResult = Database.getInstance().checkOnFriendship(this.server, this.receiver);
         }
 
-        catch (SQLException exception) {
+        catch (Exception exception) {
             exception.printStackTrace();
         }
     }
