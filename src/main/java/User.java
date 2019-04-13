@@ -23,18 +23,10 @@ public class User {
         return password;
     }
 
-    public boolean addFriend(String server, String receiver) {
+    public boolean addFriend(String server, String receiver) throws SQLException {
         if (!Database.getInstance().checkOnFriendship(server, receiver)) {
-            try
-            {
-                Database.getInstance().insert("INSERT INTO friends VALUES ((SELECT user_id FROM users WHERE login = "
-                        + "'" + server + "'), (SELECT user_id FROM users WHERE login = '" + receiver + "'), 1)");
-            }
-
-            catch (SQLException exception) {
-                exception.printStackTrace();
-            }
-
+            Database.getInstance().insert("INSERT INTO friends VALUES ((SELECT user_id FROM users WHERE login = "
+                    + "'" + server + "'), (SELECT user_id FROM users WHERE login = '" + receiver + "'), 1)");
             return true;
         }
 
@@ -43,6 +35,16 @@ public class User {
         }
     }
 
-    public boolean confirmFriendship(String server, String receiver) {
+    public void confirmFriendship(String server, String receiver) {
+        try {
+            Database.getInstance().update("UPDATE friends SET status = 2 WHERE first = (SELECT user_id FROM " +
+                    "users WHERE login = '" + server + "') AND second = (SELECT user_id FROM users WHERE login = '" +
+                    receiver + "') OR first = (SELECT user_id FROM users WHERE login = '" + receiver + "') " +
+                    "AND second = (SELECT user_id FROM users WHERE login = '" + server + "')");
+        }
+
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 }
