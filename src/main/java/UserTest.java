@@ -56,8 +56,8 @@ public class UserTest {
         this.user.addFriend(this.server, this.receiver);
     }
 
-    @And("^I try to check successful bid request$")
-    public void iTryToCheckSuccessfulBidRequest() {
+    @And("^I try to check users on request$")
+    public void iTryToCheckUsersOnRequest() {
         try {
             this.addFriendResult = Database.getInstance().checkOnRequest(this.server, this.receiver);
         }
@@ -70,5 +70,14 @@ public class UserTest {
     @Then("^I should get true <result>$")
     public void iShouldGetTrueResult(boolean result) {
         Assert.assertTrue(result);
+    }
+
+    @When("^Receiver try to confirm friendship request from server$")
+    public void receiverTryToConfirmFriendshipRequestFromServer() {
+        
+    }
+
+    @And("^I try to check users on friendship$")
+    public void iTryToCheckUsersOnFriendship() {
     }
 }
