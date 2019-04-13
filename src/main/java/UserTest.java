@@ -124,5 +124,6 @@ public class UserTest {
 
     @Then("^Receiver should get the message$")
     public void receiverShouldGetTheMessage() {
+        Assert.assertTrue(Database.getInstance().searchMessage(this.server, this.receiver, this.message));
     }
 }
