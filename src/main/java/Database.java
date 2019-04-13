@@ -90,4 +90,7 @@ public class Database {
 
         return id;
     }
+
+    public boolean checkOnRequest(String server, String receiver) {
+    }
 }
