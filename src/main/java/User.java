@@ -42,4 +42,7 @@ public class User {
             return false;
         }
     }
+
+    public boolean confirmFriendship(String server, String receiver) {
+    }
 }
