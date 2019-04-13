@@ -14,10 +14,17 @@ Feature: User
     Given I have a server
     Given I have a receiver
     When Server try to send friendship request to receiver
-    And I try to check successful bid request
+    And I try to check users on request
     Then I should get true <result>
 
   Examples:
     | result |
     | addFriendResult |
     | confirmFriendshipResult |
+
+  Scenario: Confirm friendship
+    Given I have a server
+    Given I have a receiver
+    When Receiver try to confirm friendship request from server
+    And I try to check users on friendship
+    Then I should get true <result>
