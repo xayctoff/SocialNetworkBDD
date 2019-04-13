@@ -112,4 +112,20 @@ public class Database {
 
         return result.next();
     }
+
+    public boolean searchMessage(String server, String receiver, String message) throws SQLException {
+        int serverId = instance.getUserID(server);
+        int receiverId = instance.getUserID(receiver);
+        statement = instance.connection.createStatement();
+        String query = "SELECT message FROM messages WHERE server = " + serverId + " AND receiver = " + receiverId +
+                " AND message = '" + message + "'";
+        ResultSet result = statement.executeQuery(query);
+        String messageResult = "";
+
+        while (result.next()) {
+            messageResult = result.getString(1);
+        }
+
+        return messageResult.equals(message);
+    }
 }
