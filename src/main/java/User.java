@@ -47,4 +47,7 @@ public class User {
             exception.printStackTrace();
         }
     }
+
+    public void writeMessage(String server, String receiver, String message) {
+    }
 }
