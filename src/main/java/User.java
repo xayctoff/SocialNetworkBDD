@@ -1,3 +1,5 @@
+import java.sql.SQLException;
+
 public class User {
 
     public User() {}
@@ -22,5 +24,22 @@ public class User {
     }
 
     public boolean addFriend(String server, String receiver) {
+        if (!Database.getInstance().checkOnFriendship(server, receiver)) {
+            try
+            {
+                Database.getInstance().insert("INSERT INTO friends VALUES ((SELECT user_id FROM users WHERE login = "
+                        + "'" + server + "'), (SELECT user_id FROM users WHERE login = '" + receiver + "'), 1)");
+            }
+
+            catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+
+            return true;
+        }
+
+        else {
+            return false;
+        }
     }
 }
