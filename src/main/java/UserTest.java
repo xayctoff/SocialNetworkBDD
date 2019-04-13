@@ -4,6 +4,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 
+import java.sql.SQLException;
+
 public class UserTest {
 
     private User user;
@@ -56,7 +58,17 @@ public class UserTest {
 
     @And("^I try to check successful bid request$")
     public void iTryToCheckSuccessfulBidRequest() {
-        this.addFriendResult = Database.getInstance().checkOnRequest(this.server, this.receiver);
+        try {
+            this.addFriendResult = Database.getInstance().checkOnRequest(this.server, this.receiver);
+        }
+
+        catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 
+    @Then("^I should get true <result>$")
+    public void iShouldGetTrueResult(boolean result) {
+        Assert.assertTrue(result);
+    }
 }
