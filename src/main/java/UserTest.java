@@ -4,8 +4,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 
-import java.sql.SQLException;
-
 public class UserTest {
 
     private User user;
@@ -102,5 +100,19 @@ public class UserTest {
     @Then("^I should get true result after confirm$")
     public void iShouldGetTrueResultAfterConfirm() {
         Assert.assertTrue(this.confirmFriendshipResult);
+    }
+
+    @Given("^I have a message$")
+    public void iHaveAMessage() {
+        
+    }
+
+    @When("^Server try to send message to receiver$")
+    public void serverTryToSendMessageToReceiver() {
+        
+    }
+
+    @Then("^Receiver should get the message$")
+    public void receiverShouldGetTheMessage() {
     }
 }
