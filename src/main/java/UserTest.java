@@ -13,6 +13,7 @@ public class UserTest {
     private String receiver;
     private boolean addFriendResult;
     private boolean confirmFriendshipResult;
+    private String message;
 
     @Given("^I have a user$")
     public void iHaveAUser() {
@@ -104,7 +105,7 @@ public class UserTest {
 
     @Given("^I have a message$")
     public void iHaveAMessage() {
-        
+        this.message = "Пойдём в бар";
     }
 
     @When("^Server try to send message to receiver$")
