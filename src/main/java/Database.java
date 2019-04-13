@@ -96,6 +96,17 @@ public class Database {
         String query = "SELECT first, second, status FROM friends WHERE first =\n" +
                 "(SELECT user_id FROM users WHERE login = '" + server + "') AND second = (SELECT user_id FROM users WHERE " +
                 "login = '" + receiver + "')OR\nfirst = (SELECT user_id FROM users WHERE login = '" + receiver + "') " +
+                "AND second =\n(SELECT user_id FROM users WHERE login = '" + server + "') AND status = 1\n";
+        ResultSet result = statement.executeQuery(query);
+
+        return result.next();
+    }
+
+    public boolean checkOnFriendship(String server, String receiver) throws SQLException {
+        statement = instance.connection.createStatement();
+        String query = "SELECT first, second, status FROM friends WHERE first =\n" +
+                "(SELECT user_id FROM users WHERE login = '" + server + "') AND second = (SELECT user_id FROM users WHERE " +
+                "login = '" + receiver + "')OR\nfirst = (SELECT user_id FROM users WHERE login = '" + receiver + "') " +
                 "AND second =\n(SELECT user_id FROM users WHERE login = '" + server + "') AND status = 2\n";
         ResultSet result = statement.executeQuery(query);
 
