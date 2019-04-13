@@ -23,3 +23,10 @@ Feature: User
     When Receiver try to confirm friendship request from server
     And I try to check users on friendship
     Then I should get true result after confirm
+
+  Scenario: Write message
+    Given I have a server
+    Given I have a receiver
+    Given I have a message
+    When Server try to send message to receiver
+    Then Receiver should get the message
