@@ -110,7 +110,16 @@ public class UserTest {
 
     @When("^Server try to send message to receiver$")
     public void serverTryToSendMessageToReceiver() {
-        
+        this.user = new User();
+
+        try {
+            this.user.writeMessage(this.server, this.receiver, this.message);
+        }
+
+        catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
     }
 
     @Then("^Receiver should get the message$")
