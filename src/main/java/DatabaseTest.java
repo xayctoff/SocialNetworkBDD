@@ -129,11 +129,6 @@ public class DatabaseTest {
         Assert.assertEquals(rowsNumber, this.updateResult);
     }
 
-    @Given("^I have a login$")
-    public void iHaveALoginLogin() {
-        this.login = "xayctoff";
-    }
-
     @When("^I try to get user's id by query$")
     public void iTryToGetUserSIdByQuery() {
         Database database = Database.getInstance();
@@ -148,7 +143,7 @@ public class DatabaseTest {
     }
 
     @Then("^I should get user's id$")
-    public void iShouldGetUserSIdUser_id() {
+    public void iShouldGetUserSId() {
         Assert.assertEquals(1, this.ID);
     }
 }
