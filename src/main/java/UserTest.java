@@ -9,9 +9,9 @@ public class UserTest {
     private User user;
     private String login;
     private String password;
-
     private String server;
     private String receiver;
+    private boolean addFriendResult;
 
     @Given("^I have a user$")
     public void iHaveAUser() {
@@ -56,5 +56,7 @@ public class UserTest {
 
     @And("^I try to check successful bid request$")
     public void iTryToCheckSuccessfulBidRequest() {
+        this.addFriendResult = Database.getInstance().checkOnRequest(this.server, this.receiver);
     }
+
 }
