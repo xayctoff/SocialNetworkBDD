@@ -4,6 +4,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 
+import java.sql.SQLException;
+
 public class UserTest {
 
     private User user;
@@ -123,7 +125,7 @@ public class UserTest {
     }
 
     @Then("^Receiver should get the message$")
-    public void receiverShouldGetTheMessage() {
+    public void receiverShouldGetTheMessage() throws SQLException {
         Assert.assertTrue(Database.getInstance().searchMessage(this.server, this.receiver, this.message));
     }
 }
